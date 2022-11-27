@@ -102,6 +102,83 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    let logbtn = errorBtns[0];
+    logbtn.addEventListener('click', e => {
+      console.log("Console Log Demo");
+    });
+    let errbtn = errorBtns[1];
+    errbtn.addEventListener('click', e => {
+      console.error("Console error demo");
+    });
+    let countbtn = errorBtns[2];
+    countbtn.addEventListener('click', e => {
+      console.count("I'm counting");
+    });
+    let warnbtn = errorBtns[3];
+    warnbtn.addEventListener('click', e => {
+      console.warn("Console warn demo");
+    });
+    let assbtn = errorBtns[4];
+    assbtn.addEventListener('click', e => {
+      console.assert(3 % 2 === 0, "3 is not even");
+    });
+    let clearbtn = errorBtns[5];
+    clearbtn.addEventListener('click', e => {
+      console.clear();
+    });
+    let dirbtn = errorBtns[6];
+    dirbtn.addEventListener('click', e => {
+      let someObj = {
+        role : "student",
+        class : "CSE110",
+        task : "lab9"
+      };
+      console.dir(someObj);
+    });
+    let dirxmlbtn = errorBtns[7];
+    dirxmlbtn.addEventListener('click', e => {
+      console.dirxml(document.querySelector('button'));
+    });
+    let grpbtn = errorBtns[8];
+    grpbtn.addEventListener('click', e => {
+      console.group("Console group start demo");
+    });
+    let grpendbtn = errorBtns[9];
+    grpendbtn.addEventListener('click', e => {
+      console.groupEnd();
+    });
+    let tblbtn = errorBtns[10];
+    tblbtn.addEventListener('click', e => {
+      console.table(['CSE110lab9','CSE158ass2','MATH189']);
+    });
+    let timebtn = errorBtns[11];
+    timebtn.addEventListener('click', e => {
+      console.time('start timing');
+    });
+    let stopbtn = errorBtns[12];
+    stopbtn.addEventListener('click', e => {
+      console.timeEnd('start timing');
+    });
+    let trcbtn = errorBtns[13];
+    trcbtn.addEventListener('click', e => {
+      function firstLayer(){
+        secondLayer();
+      }
+      function secondLayer(){
+        thirdLayer();
+      }
+      function thirdLayer(){
+        lastLayer();
+      }
+      function lastLayer(){
+        console.trace();
+      }
+      firstLayer();
+    })
+    let glbbtn = errorBtns[14];
+    glbbtn.addEventListener('click', e => {
+      boom();
+    })
   </script>
 </body>
 
