@@ -87,6 +87,14 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "215f4de0ee124a13921975eb5fc0591b"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+                        
   <script>
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
@@ -95,7 +103,19 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      try{
+        if(isNaN(firstNum) || isNaN(secondNum)){
+          throw new TypeError('input is not a number');
+        }
+        output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      }
+      catch(err){
+        console.log('wrong input with error');
+        console.log(err);
+      }
+      finally{
+        console.log('Finally!');
+      }
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
@@ -174,11 +194,17 @@
         console.trace();
       }
       firstLayer();
-    })
+    });
     let glbbtn = errorBtns[14];
     glbbtn.addEventListener('click', e => {
       boom();
-    })
+    });
+
+    if(window.onerror){
+      console.log(window.onerror);
+    }
+
+    TrackJS.track('Testing TrackJS!');
   </script>
 </body>
 
